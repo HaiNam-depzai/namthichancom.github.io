@@ -1,2 +1,3 @@
 # namthichancom.github.io
-My personal website only for sensitive content
+Learning Github not really fun at all.
+
