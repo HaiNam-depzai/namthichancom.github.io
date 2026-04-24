@@ -10,25 +10,27 @@
     
     <link rel="stylesheet" href="Tikpass.css">
     <script src="Tikpass.js"></script>
-</head>
-<body class="min-h-screen">
-    <header class="fixed top-0 w-full z-50 flex justify-between items-center px-8 h-20 bg-[#211F60]/80 backdrop-blur-xl border-b border-white/10 shadow-xl">
-        <div class="flex items-center gap-8">
-            <span class="text-2xl font-black text-[#FF69B4] tracking-tight font-['Epilogue']">TIKPAS</span>
-            <nav class="hidden md:flex gap-6">
-                <a class="text-slate-300 hover:text-[#A8E8F9] transition-colors font-['Epilogue'] font-medium" href="#">Chợ vé</a>
-                <a class="text-[#A8E8F9] font-bold border-b-2 border-[#A8E8F9] pb-1 font-['Epilogue']" href="#">Bán vé</a>
-                <a class="text-slate-300 hover:text-[#A8E8F9] transition-colors font-['Epilogue'] font-medium" href="#">Sự kiện</a>
-            </nav>
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-8 h-20 bg-[#A8E8F9]/90 backdrop-blur-xl border-b border-white/20 shadow-lg">
+    <div class="flex items-center gap-8">
+        <span class="text-2xl font-black text-[#FF69B4] tracking-tight font-['Epilogue']">TIKPAS</span>
+        
+        <nav class="hidden md:flex gap-6">
+            <a class="text-[#211F60]/70 hover:text-[#211F60] transition-colors font-['Epilogue'] font-medium" href="#">Chợ vé</a>
+            <a class="text-[#211F60] font-bold border-b-2 border-[#211F60] pb-1 font-['Epilogue']" href="#">Bán vé</a>
+            <a class="text-[#211F60]/70 hover:text-[#211F60] transition-colors font-['Epilogue'] font-medium" href="#">Sự kiện</a>
+        </nav>
+    </div>
+
+    <div class="flex items-center gap-4">
+        <div class="relative hidden lg:block">
+            <input class="bg-[#211F60]/10 border border-[#211F60]/20 rounded-full py-2 px-4 w-64 focus:ring-1 focus:ring-[#211F60] outline-none text-sm text-[#211F60] placeholder:text-[#211F60]/50" 
+                   placeholder="Tìm kiếm sự kiện..." 
+                   type="text"/>
         </div>
-        <div class="flex items-center gap-4">
-            <div class="relative hidden lg:block">
-                <input class="bg-white/5 border border-white/10 rounded-full py-2 px-4 w-64 focus:ring-1 focus:ring-[#A8E8F9] outline-none text-sm" placeholder="Tìm kiếm sự kiện..." type="text"/>
-            </div>
-            <button class="material-symbols-outlined text-slate-300 hover:text-[#FF69B4] transition-all duration-300 active:scale-95">notifications</button>
-            <button class="material-symbols-outlined text-slate-300 hover:text-[#FF69B4] transition-all duration-300 active:scale-95">account_circle</button>
-        </div>
-    </header>
+        <button class="material-symbols-outlined text-[#211F60] hover:scale-110 transition-all duration-300 active:scale-95">notifications</button>
+        <button class="material-symbols-outlined text-[#211F60] hover:scale-110 transition-all duration-300 active:scale-95">account_circle</button>
+    </div>
+</header>
 
     <main class="pt-32 pb-20 max-w-7xl mx-auto px-8 grid grid-cols-12 gap-8">
         <div class="col-span-12 lg:col-span-3 space-y-6">
