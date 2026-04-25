@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html class="dark" lang="vi">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Bán vé | TIKPAS</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+</head>
+<body class="bg-[#211F60] text-white font-['Epilogue']">
+
+    <main class="pt-10 pb-20 max-w-4xl mx-auto px-8">
+        <div class="glass-card bg-white/5 border border-white/10 rounded-2xl p-8 space-y-6 shadow-2xl backdrop-blur-md">
+            <div class="flex items-center gap-2 mb-4">
+                <span class="material-symbols-outlined text-[#A8E8F9]">payments</span>
+                <h2 class="text-2xl font-semibold text-white">Giá bán</h2>
+            </div>
+            
+            <div class="space-y-5">
+                <div class="space-y-2">
+                    <label class="font-medium text-slate-300">Giá gốc</label>
+                    <div class="relative">
+                        <span class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 font-bold">VNĐ</span>
+                        <input class="w-full bg-[#1F1F3D]/80 border border-white/10 rounded-lg p-3.5 pl-5 text-white outline-none focus:border-[#A8E8F9]/50 transition" placeholder="Ví dụ: 500,000" type="number"/>
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="font-medium text-slate-300">Giá muốn bán</label>
+                    <div class="relative">
+                        <span class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 font-bold">VNĐ</span>
+                        <input id="selling-price" class="w-full bg-[#1F1F3D]/80 border border-white/10 rounded-lg p-3.5 pl-5 text-white outline-none focus:border-[#A8E8F9]/50 transition" placeholder="Nhập giá bạn muốn bán..." type="number"/>
+                    </div>
+                    <p class="text-xs text-slate-400 italic">* Phí dịch vụ niêm yết là 3%</p>
+                </div>
+
+                <div class="p-4 bg-[#FF69B4]/15 rounded-lg border border-[#FF69B4]/20 flex justify-between items-center">
+                    <span class="text-sm text-slate-200">Số tiền bạn thực nhận (Sau khi -3%)</span>
+                    <span id="receive-amount" class="font-bold text-[#FF69B4] text-xl">0 VNĐ</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const priceInput = document.getElementById('selling-price');
+        const receiveDisplay = document.getElementById('receive-amount');
+
+        priceInput.addEventListener('input', function() {
+            // Lấy giá trị nhập vào
+            const val = parseFloat(this.value);
+
+            if (isNaN(val) || val <= 0) {
+                receiveDisplay.innerText = "0 VNĐ";
+                return;
+            }
+
+            // Tính toán trừ đi 3% hoa hồng
+            const commission = 0.03;
+            const finalAmount = val * (1 - commission);
+
+            // Định dạng hiển thị tiền tệ (VD: 1.000.000)
+            const formattedAmount = new Intl.NumberFormat('vi-VN').format(Math.floor(finalAmount));
+            
+            receiveDisplay.innerText = formattedAmount + " VNĐ";
+        });
+    </script>
+</body>
+</html>

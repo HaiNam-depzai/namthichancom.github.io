@@ -56,3 +56,23 @@ tailwind.config = {
         },
     },
 };
+function previewImage(input, previewId) {
+    const preview = document.getElementById(previewId);
+    const placeholder = document.getElementById(previewId.replace('preview', 'placeholder'));
+    
+    if (input.files && input.files[0]) {
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+            // Hiển thị ảnh
+            preview.src = e.target.result;
+            preview.classList.remove('hidden');
+            // Ẩn chữ và icon placeholder
+            if (placeholder) {
+                placeholder.classList.add('hidden');
+            }
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
